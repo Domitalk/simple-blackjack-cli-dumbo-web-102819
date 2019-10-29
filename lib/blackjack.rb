@@ -40,7 +40,7 @@ def hit?(number)
     invalid_command
     hit?(number)
   end
- 
+  number
 end
 
 def invalid_command
@@ -53,7 +53,11 @@ end
 
 def runner
   welcome
-  number = initial_round
-  
+  card_total = initial_round
+  until card_total > 21 do
+    card_total = hit?(card_total)
+    display_card_total(card_total)
+  end
+  end_game(card_total)
 end
     
